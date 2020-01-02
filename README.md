@@ -144,3 +144,6 @@ npm run dev
 
 ## References
 - [dev.to](https://dev.to/veevidify/docker-compose-up-your-entire-laravel-apache-mysql-development-environment-45ea)
+- [make:auth](https://stackoverflow.com/questions/57774231/artisan-command-makeauth-is-not-defined-in-laravel-6)
+- [php:7.2-apache](https://github.com/docker-library/php/blob/873725e57ec2fc5f2642dc0023676597bcc4bea9/7.2/stretch/apache/Dockerfile)
+- [node:10.18-stretch-slim](https://github.com/nodejs/docker-node/blob/3c10e908934690b6af4f8f83b7e5e1da49926b34/10/stretch-slim/Dockerfile)
