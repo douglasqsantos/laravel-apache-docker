@@ -4,11 +4,16 @@
 
 *docker-compose.yml* boots up *php-apache* (mount app files) and *mysql* (mount db files), using *networks* to interconnect.
 
-### How to use
+## How to use
 - Checkout the project 
 - Configure the .env
 - Execute the docker-compose
 - Execute the composer
+
+Configure the .env
+```
+cp .env.example .env
+```
 
 Executing the compose to build the image 
 ```
@@ -35,11 +40,13 @@ Generate the key for Laravel
 ./php-artisan key:generate
 ```
 
-### Helpers 
+Now we can access the Laravel: http://localhost:8080/
+
+## Helpers 
 
 From time to time, I want to be able to quickly run CLI commands (*composer*, *artisan*, etc.) without having to type **docker exec** everytime. So here are some bash scripts I made wrapping around **docker exec**:
 
-#### container
+## container
 
 Running **./container** takes you inside the laravel-app container under user uid(1000) (same with host user)
 
@@ -49,7 +56,7 @@ devuser@2fe14786d508:/var/www/html$ exit
 exit
 ```
 
-#### db 
+## db 
 
 Running **./db** will connect to your database container's daemon using mysql client.
 
@@ -72,10 +79,11 @@ mysql> \q
 Bye
 ```
 
-#### composer
+## composer
 
 Run any *composer* command, example:
 ```
+./composer dump-autoload
 Generating optimized autoload files> Illuminate\Foundation\ComposerScripts::postAutoloadDump
 > @php artisan package:discover --ansi
 Discovered Package: facade/ignition
@@ -88,7 +96,7 @@ Package manifest generated successfully.
 Generated optimized autoload files containing 3885 classes
 ```
 
-#### php-artisan
+## php-artisan
 
 Run *php artisan* commands, example:
 ```bash
@@ -97,7 +105,7 @@ php artisan make:controller NewBlogPostController --resource
 Controller created successfully.
 ```
 
-#### phpunit
+## phpunit
 
 Run *./vendor/bin/phpunit* to execute tests, example:
 ```
@@ -113,7 +121,7 @@ No tests executed!
 ```
 
 
-### Update for Laravel 6: The New Way (php artisan make:auth)
+## Update for Laravel 6: The New Way (php artisan make:auth)
 
 Basically, **make:auth** command was used to create the authentication scaffolding. The concept has not been removed, but the way of implementation has been changed
 
@@ -133,3 +141,6 @@ This command will install a layout view, registration and login views, as well a
 npm install
 npm run dev
 ```
+
+## References
+- [dev.to](https://dev.to/veevidify/docker-compose-up-your-entire-laravel-apache-mysql-development-environment-45ea)
